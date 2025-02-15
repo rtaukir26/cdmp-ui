@@ -10,12 +10,13 @@ const LoginPage = () => {
     const rawFormData = {
       email: formData.get('email'),
       password: formData.get('password'),
+      cnfpassword: formData.get('cnfpassword'),
     }
-    if(rawFormData.email && rawFormData.password){
+    if(rawFormData.email && rawFormData.password && rawFormData.cnfpassword){
 
-      redirect("/dashboard")
+      redirect("/login")
     }else {
-      redirect("/login?ErrorMessage=please fill mandate fields")
+      redirect("/register?ErrorMessage=please fill mandate fields")
     }
   }
 
@@ -43,8 +44,15 @@ const LoginPage = () => {
             required
             className={styles.input}
           />
+          <Input
+            name="cnfpassword"
+            type="password"
+            placeholder="Password"
+            required
+            className={styles.input}
+          />
           <button type="submit" className={styles.button}>
-            Login
+            Submit
           </button>
         </form>
         <div className={styles.links}>

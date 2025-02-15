@@ -1,11 +1,12 @@
 import styles from "../../app/login/page.module.css";
 
 export default function Input({
-  type,
+  type="text",
   required,
   value,
   onChange,
   placeholder,
+  ...props
 }) {
   return (
     <input
@@ -15,6 +16,7 @@ export default function Input({
       onChange={onChange}
       placeholder={placeholder}
       required={required}
+      {...props}
     />
   );
 }
