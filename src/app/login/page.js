@@ -8,6 +8,8 @@ import Input from "@/components/EmailInput/page";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  
   // const router = useRouter();
 
   console.log("email", email);
@@ -42,6 +44,14 @@ const LoginPage = () => {
             className={styles.input}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Confirm Password"
+            required
+            className={styles.input}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <button type="submit" className={styles.button}>
             Login
