@@ -13,6 +13,7 @@ const LoginPage = () => {
   // const router = useRouter();
 
   console.log("email", email);
+  // console.log("password", password);
 
   const handleSubmit = (e) => {
     e.preventDefault();
