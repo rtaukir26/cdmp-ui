@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import styles from "./page.module.css";
 const Dashboard = () => {
   return (
@@ -9,7 +10,7 @@ const Dashboard = () => {
         <ul>
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">My Profile</a></li>
-          <li><a href="#">Health Metrics</a></li>
+          <li><Link href="/healthMetrics">Health Metrics</Link></li>
           <li><a href="#">Messages</a></li>
           <li><a href="#">Logout</a></li>
         </ul>
