@@ -1,42 +1,35 @@
-"use client";
-
-import { useState } from "react";
+import Link from "next/link";
 import styles from "./page.module.css";
 import Input from "@/components/EmailInput/page";
 
 export const HealthMetricsPage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    age: "",
-    gender: "",
-    weight: "",
-    height: "",
-    heartRate: "",
-    bloodPressure: "",
-    tempreture: "",
-  });
-  console.log("formData", formData);
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  async function patientHealthEntry(formData) {
+    'use server'
+ 
+    const rawFormData = {
+      name: formData.get('name'),
+      age: formData.get('age'),
+      gender: formData.get('gender'),
+      weight: formData.get('weight'),
+      height: formData.get('height'),
+      heartRate: formData.get('heartRate'),
+      bloodPressure: formData.get('bloodPressure'),
+      tempreture: formData.get('tempreture'),
+    }
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    console.log("Submitted Data:", formData);
-    // alert("Health metrics submitted successfully!");
-  };
+  }
+
+
+
 
   return (
     <div className={styles.container}>
       <div className={styles.card}>
         <h2 className={styles.title}>Health Metrics Form</h2>
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form action={patientHealthEntry} className={styles.form}>
           <Input
-            type="text"
             name="name"
             placeholder="Patient Name"
-            // value={formData.name}
-            // onChange={handleChange}
             required
             className={styles.input}
           />
@@ -44,15 +37,11 @@ export const HealthMetricsPage = () => {
             type="number"
             name="age"
             placeholder="Age"
-            // value={formData.age}
-            // onChange={handleChange}
             required
             className={styles.input}
           />
           <select
             name="gender"
-            // value={formData.gender}
-            // onChange={handleChange}
             required
             className={styles.select}
           >
@@ -62,47 +51,32 @@ export const HealthMetricsPage = () => {
             <option value="Other">Other</option>
           </select>
           <Input
-            type="text"
             name="weight"
             placeholder="Weight (kg)"
-            // value={formData.weight}
-            // onChange={handleChange}
             required
             className={styles.input}
           />
           <Input
-            type="text"
             name="height"
             placeholder="Height (cm)"
-            // value={formData.height}
-            // onChange={handleChange}
             required
             className={styles.input}
           />
           <Input
-            type="text"
             name="heartRate"
             placeholder="Heart Rate (bpm)"
-            // value={formData.heartRate}
-            // onChange={handleChange}
             required
             className={styles.input}
           />{" "}
           <Input
-            type="text"
             name="bloodPressure"
             placeholder="Blood Pressure (e.g., 120/80 mmHg)"
-            // value={formData.bloodPressure}
-            // onChange={handleChange}
             required
             className={styles.input}
           />
           <Input
-            type="text"
             name="tempreture"
             placeholder="tempreture "
-            // value={formData.tempreture}
-            // onChange={handleChange}
             required
             className={styles.input}
           />
@@ -110,6 +84,7 @@ export const HealthMetricsPage = () => {
             Submit
           </button>
         </form>
+        <Link href="/healthMetrics/history">History</Link>
       </div>
     </div>
   );

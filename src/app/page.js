@@ -11,9 +11,11 @@ const HealthPage = () => {
           <li><a href="#">Health Topics</a></li>
           <li><a href="#">Resources</a></li>
           <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#">Contact</a></li> | 
+          <li><a href="/login">Login</a></li>
         </ul>
       </nav>
+    
 
       {/* Hero Section */}
       <header className={styles.hero}>
