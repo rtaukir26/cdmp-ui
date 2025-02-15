@@ -24,7 +24,21 @@ export const HealthMetricsPage = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.card}>
+    {/* Sidebar */}
+    <aside className={styles.sidebar}>
+      <h2>Bayer Health</h2>
+      <ul>
+        <li><Link href="/dashboard">Dashboard</Link></li>
+        <li><a href="#">My Profile</a></li>
+        <li><a href="#">Health Metrics</a></li>
+        <li><a href="#">Messages</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </aside>
+
+    {/* Main Content */}
+    <main className={styles.content}>
+    <div className={styles.card}>
         <h2 className={styles.title}>Health Metrics Form</h2>
         <form action={patientHealthEntry} className={styles.form}>
           <Input
@@ -86,7 +100,8 @@ export const HealthMetricsPage = () => {
         </form>
         <Link href="/healthMetrics/history">History</Link>
       </div>
-    </div>
+    </main>
+  </div>
   );
 };
 
