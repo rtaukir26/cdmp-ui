@@ -1,13 +1,16 @@
-"use client"
+"use client";
 
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import styles from "./page.module.css";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
+import Input from "@/components/EmailInput/page";
 
-const LoginPage=()=> {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const router = useRouter();
+
+  console.log("email", email);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,21 +26,22 @@ const LoginPage=()=> {
         </div>
         <h2 className={styles.title}>Login</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <input
+        
+          <Input
             type="email"
-            placeholder="Email"
-            className={styles.input}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             required
+            value={email}
+            className={styles.input}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <input
+          <Input
             type="password"
             placeholder="Password"
+            required
             className={styles.input}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
           <button type="submit" className={styles.button}>
             Login
@@ -50,5 +54,5 @@ const LoginPage=()=> {
       </div>
     </div>
   );
-}
+};
 export default LoginPage;
